@@ -1,4 +1,3 @@
-import Contador from '@/components/Contador.vue';
 <template>
   <div>Contador: {{ counter }}</div>
 </template>

@@ -1,4 +1,3 @@
-import PokemonImg from '@/components/PokemonPicture.vue';
 <template>
   <div class="pokemon-container">
     <img :src="imgSrc" alt="pokemon" class="hidden-pokemon" />
