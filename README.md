@@ -1,5 +1,7 @@
 # 04-pokemon-game
 
+Link: https://game-whos-that-pokemon.netlify.app/
+
 ## Project setup
 ```
 npm install
