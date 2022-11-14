@@ -87,6 +87,10 @@ li:hover {
   background-color: rgba(21, 146, 7, 0.79);
 }
 
+.inactive {
+  pointer-events: none;
+}
+
 li[disabled] {
   border: 3px solid rgba(207, 24, 24, 0.5);
   background-color: rgba(0, 0, 0, 0.5);

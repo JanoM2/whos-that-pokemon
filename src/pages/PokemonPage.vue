@@ -59,7 +59,7 @@ export default {
       if (pokemonId === this.pokemon.id) {
         this.counter++; // sumar contador si es correcto
         this.showPokemon = true; // mostrar el pokemon
-        event.target.classList.add("correct"); // agregar estilos si es correcto
+        this.correctBtn(); // agregar estilos si es correcto
         this.message = `Correcto, era ${this.pokemon.name.toUpperCase()}`; // escribir mensaje
         this.modifyCounter(this.counter); // mensajes personalizados por aciertos seguidos
       } else {
@@ -74,6 +74,13 @@ export default {
       this.showPokemon = false;
       this.message = null;
       this.pokemon = null;
+    },
+    correctBtn() {
+      document
+        .querySelectorAll("li")
+        .forEach((el) => el.classList.add("inactive"));
+      event.target.classList.remove("inactive");
+      event.target.classList.add("correct");
     },
     disabledBtn() {
       document
