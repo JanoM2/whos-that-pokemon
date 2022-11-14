@@ -2,7 +2,7 @@
   <h1 v-if="!pokemon">Espere por favor...</h1>
 
   <div v-else>
-    <h1>¿Quien es este Pokémon?</h1>
+    <h1>¿Quien es este susodicho Pokémon?</h1>
 
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
     <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer($event)" />
