@@ -42,20 +42,17 @@ export default {
     },
     modifyCounter() {
       this.counter === 5
-        ? (this.message = `¡WOW! Correcto, ¡¡Vas ${this.counter} seguidas!!`)
+        ? (this.message = `¡Correcto!, ¡¡Vas ${this.counter} seguidas!!`)
         : (this.message = this.message);
       if (this.counter === 10)
         return (this.message = `¡WOW! Eso es Correcto, ¡¡Vas ${this.counter} seguidas!!`);
       this.counter === 15
-        ? (this.message = `¡PERO BUENO!, ¡¡Vas ${this.counter} seguidas!!`)
+        ? (this.message = `¡PERO BUENO!, ¡¡Vas ${this.counter} seguidas!! Increible`)
         : (this.message = this.message);
       if (this.counter === 20)
         return (this.message = `😳 vas ${this.counter} seguidas... creo que salir a tomar algo de aire de vez en cuando te haria bien`);
       this.counter % 10 === 0
         ? (this.message = `🤯 vas ${this.counter} seguidas... Podrias ver otras series ademas de Pokémon, ¿Sabias?`)
-        : (this.message = this.message);
-      this.counter === 100
-        ? (this.message = `Vas ${this.counter}... Ya que estamos, para que estudies un poco 'https://es.wikipedia.org/wiki/Segunda_Guerra_Mundial'`)
         : (this.message = this.message);
     },
     checkAnswer(pokemonId) {
