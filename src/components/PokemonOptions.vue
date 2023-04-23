@@ -51,7 +51,7 @@ export default {
 /* Pokemon Options */
 ul {
   list-style-type: none;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 li {
