@@ -85,6 +85,7 @@ export default {
       this.showPokemon = false;
       this.message = null;
       this.pokemon = null;
+      this.showBttn = false;
     },
     correctBtn() {
       document
