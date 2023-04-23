@@ -1,7 +1,7 @@
 <template>
   <h1 v-if="!pokemon">Espere por favor...</h1>
-
   <div v-else>
+    <Records :nombres="nombres" />
     <h1>¿Quien es este Pokémon?</h1>
 
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
@@ -10,12 +10,19 @@
 
     <div v-if="message" class="fade-in">
       <h2>{{ message }}</h2>
-      <button @click="newGame"></button>
+      <button class="button-refresh" @click="newGame"></button>
     </div>
+
+    <button v-if="showBttn" class="fade-in" id="record">
+      <!-- @click="nose.push{paginaFormularioRecord}
+      llevar a pagina para agregar record" -->
+      ¿Quieres anotar tu record?
+    </button>
   </div>
 </template>
 
 <script>
+import Records from "../pages/Records.vue";
 import PokemonOptions from "@/components/PokemonOptions.vue";
 import PokemonPicture from "@/components/PokemonPicture.vue";
 import Contador from "@/components/Contador.vue";
@@ -23,14 +30,16 @@ import getPokemonOptions from "@/pages/helpers/getPokemonOptions.js";
 
 export default {
   name: "PokemonPage",
-  components: { PokemonOptions, PokemonPicture, Contador },
+  components: { Records, PokemonOptions, PokemonPicture, Contador },
   data() {
     return {
       counter: 0,
       pokemon: null,
       pokemonArr: [],
       showPokemon: false,
+      showBttn: false,
       message: "",
+      nombres: ["Jano", "Jere", "Juan", 2221, "XRL8"],
     };
   },
   methods: {
@@ -62,11 +71,13 @@ export default {
         this.correctBtn(); // agregar estilos si es correcto
         this.message = `Correcto, era ${this.pokemon.name.toUpperCase()}`; // escribir mensaje
         this.modifyCounter(this.counter); // mensajes personalizados por aciertos seguidos
+        this.showBttn = false;
       } else {
         this.counter = 0; // contador a 0 si es incorrecto
         this.disabledBtn(); // estilos a los botones si es incorrecto
         this.showPokemon = false; // no mostrar el pokemon
         this.message = `Incorrecto, ese era ${this.pokemon.name.toUpperCase()}`;
+        this.showBttn = true;
       }
     },
     newGame() {
@@ -100,7 +111,28 @@ h2 {
   margin: 20px auto;
 }
 
-button {
+#record {
+  height: 10%;
+  border: none;
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.6s;
+  font-weight: bolder;
+  border-radius: 10px;
+  justify-content: center;
+  background-color: var(--primary-color);
+  box-shadow: 5px 5px 5px var(--secondary-color);
+}
+
+#record:hover {
+  color: white;
+  transition: 0.6s;
+  border: 1px solid black 1s;
+  box-shadow: 5px 5px 5px white;
+}
+
+.button-refresh {
   padding: 40px;
   cursor: pointer;
   border-radius: 30%;

@@ -1,3 +1,8 @@
+:root {
+  --primary-color: rgba(21, 146, 7);
+  --secondary-color: #3b3b40;
+}
+
 html,
 body {
   background-color: #f1f1f1;
