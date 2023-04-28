@@ -1,7 +1,8 @@
 <template>
+  <Records :nombres="nombres" />
+  <MenuButton />
   <h1 v-if="!pokemon">Espere por favor...</h1>
-  <div v-else>
-    <Records :nombres="nombres" />
+  <div class="main" v-else>
     <h1>¿Quien es este Pokémon?</h1>
 
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
@@ -22,15 +23,16 @@
 </template>
 
 <script>
-import Records from "../pages/Records.vue";
+import Records from "@/pages/Records.vue";
+import Contador from "@/components/Contador.vue";
+import MenuButton from "@/components/MenuButton.vue";
 import PokemonOptions from "@/components/PokemonOptions.vue";
 import PokemonPicture from "@/components/PokemonPicture.vue";
-import Contador from "@/components/Contador.vue";
 import getPokemonOptions from "@/pages/helpers/getPokemonOptions.js";
 
 export default {
   name: "PokemonPage",
-  components: { Records, PokemonOptions, PokemonPicture, Contador },
+  components: { MenuButton, Records, PokemonOptions, PokemonPicture, Contador },
   data() {
     return {
       counter: 0,

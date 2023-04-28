@@ -21,6 +21,7 @@ export default {
     return {
       consola: (event) => {
         console.log(event.target.innerText);
+        // mostrar puntaje de la persona seleccionada
       },
     };
   },
@@ -32,12 +33,15 @@ export default {
   margin: 0;
 }
 .tabla-records {
-  top: 0;
+  top: 0%;
+  left: 0%;
   z-index: 999;
   margin: 10px;
+  width: 200px;
   display: flex;
+  transition: 1s;
   border-radius: 5%;
-  position: absolute;
+  position: fixed;
   flex-direction: column;
   border: 3px solid var(--secondary-color);
   background: linear-gradient(
@@ -77,5 +81,21 @@ li:hover {
   color: white;
   cursor: pointer;
   transition: 0.6s;
+}
+.tabla-records.active {
+  /* calcular tabla record que quede en el medio */
+  top: 40%;
+  left: 40%;
+  transition: 1s;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+@media (max-width: 900px) {
+  .tabla-records {
+    top: -100%;
+    left: 40%;
+    margin-left: -50px;
+  }
 }
 </style>

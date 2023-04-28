@@ -1,0 +1,166 @@
+<template>
+  <span @click="changeValue" class="header--btnMenu hamburger-box">
+    <span class="header--btnMenu hamburger-inner"></span>
+  </span>
+</template>
+
+<script>
+export default {
+  setup() {
+    const changeValue = (e) => {
+      document.querySelector(".tabla-records").classList.toggle("active");
+      document.querySelector(".header--btnMenu").classList.toggle("is-active");
+      document.querySelector(".main").classList.toggle("blur");
+      if (e.target.matches(".tabla-records.active"))
+        console.log("tabla record");
+    };
+
+    // document.addEventListener("click", (e) => {
+    //   if (
+    //     !e.target.matches(".header--btnMenu") &&
+    //     !e.target.matches(".tabla-records")
+    //     // document.querySelector(".tabla-records.active")
+    //     // SI TABLA RECORDS IS-ACTIVE, TOMAR CLASES SINO NO
+
+    //     // BUSCAR UNA MANERA DE VERIFICAR SI
+    //     // "TABLA RECORDS ACTIVE" ES TRUE
+    //   ) {
+    //     console.log(event.target);
+    //     document.querySelector(".tabla-records").classList.toggle("active");
+    //     document
+    //       .querySelector(".header--btnMenu")
+    //       .classList.toggle("is-active");
+    //     document.querySelector(".main").classList.toggle("blur");
+    //   }
+    // });
+    return { changeValue };
+  },
+};
+</script>
+
+<style>
+.blur {
+  filter: blur(2px);
+}
+
+.hamburger {
+  border: 0;
+  margin: 0;
+  z-index: 999;
+  font: inherit;
+  color: inherit;
+  transition: 0.6s;
+  position: absolute;
+  text-transform: none;
+  background-color: red;
+  transition-duration: 0.15s;
+  transform: translate(0%, 0%);
+  transition-timing-function: linear;
+  transition-property: opacity, filter;
+}
+
+.header--btnMenu {
+  cursor: pointer;
+  transition: 0.6s;
+  background-color: var(--primary-color);
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: var(--secondary-color);
+}
+
+/* Hover */
+.header--btnMenu:hover,
+.header--btnMenu.is-active:hover {
+  transition: 0.6s;
+  background-color: var(--secondary-color);
+}
+
+.header--btnMenu:hover > .hamburger-inner,
+.header--btnMenu:hover > .hamburger-inner::before,
+.header--btnMenu:hover > .hamburger-inner::after {
+  transition: 0.6s;
+  background-color: var(--primary-color);
+}
+
+.hamburger-box {
+  top: 5px;
+  right: 5px;
+  width: 45px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  border-radius: 10px;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.hamburger-inner {
+  display: block;
+  top: 20px;
+  margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/* 3DX */
+.hamburger-box .hamburger-box {
+  perspective: 80px;
+}
+
+.hamburger-box .hamburger-inner {
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background-color 0s 0s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hamburger-box .hamburger-inner::before,
+.hamburger-box .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hamburger-box.is-active .hamburger-inner {
+  transform: rotateY(180deg);
+  background-color: transparent;
+}
+
+.hamburger-box.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+
+.hamburger-box.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+@media (min-width: 901px) {
+  .header--btnMenu {
+    display: none;
+  }
+}
+</style>
