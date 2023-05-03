@@ -50,8 +50,11 @@ export default {
 <style scoped>
 /* Pokemon Options */
 ul {
+  flex-direction: column;
   list-style-type: none;
   margin-top: 50px;
+  display: flex;
+  padding: 0;
 }
 
 li {

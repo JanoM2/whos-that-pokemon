@@ -86,7 +86,6 @@ li:hover {
   /* calcular tabla record que quede en el medio */
   top: 40%;
   left: 40%;
-  transition: 1s;
   margin-top: -50px;
   margin-left: -50px;
 }

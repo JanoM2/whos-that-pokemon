@@ -39,25 +39,30 @@ export default {
 </script>
 
 <style>
+#app {
+  width: 100%;
+  position: relative;
+}
+
 .blur {
   filter: blur(2px);
 }
 
-.hamburger {
+/* .hamburger {
   border: 0;
   margin: 0;
+  width: 500px;
   z-index: 999;
   font: inherit;
   color: inherit;
   transition: 0.6s;
   position: absolute;
   text-transform: none;
-  background-color: red;
   transition-duration: 0.15s;
   transform: translate(0%, 0%);
   transition-timing-function: linear;
   transition-property: opacity, filter;
-}
+} */
 
 .header--btnMenu {
   cursor: pointer;
@@ -86,12 +91,12 @@ export default {
 }
 
 .hamburger-box {
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   width: 45px;
   height: 40px;
   display: flex;
-  position: absolute;
+  position: fixed;
   border-radius: 10px;
   justify-content: center;
   background-color: var(--primary-color);
