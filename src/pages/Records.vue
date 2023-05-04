@@ -83,18 +83,14 @@ li:hover {
   transition: 0.6s;
 }
 .tabla-records.active {
-  /* calcular tabla record que quede en el medio */
-  top: 40%;
-  left: 40%;
-  margin-top: -50px;
-  margin-left: -50px;
+  transform: translate(-50%, -100%);
 }
 
 @media (max-width: 900px) {
   .tabla-records {
-    top: -100%;
-    left: 40%;
-    margin-left: -50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -500%);
   }
 }
 </style>

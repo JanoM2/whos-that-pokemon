@@ -39,30 +39,9 @@ export default {
 </script>
 
 <style>
-#app {
-  width: 100%;
-  position: relative;
-}
-
 .blur {
   filter: blur(2px);
 }
-
-/* .hamburger {
-  border: 0;
-  margin: 0;
-  width: 500px;
-  z-index: 999;
-  font: inherit;
-  color: inherit;
-  transition: 0.6s;
-  position: absolute;
-  text-transform: none;
-  transition-duration: 0.15s;
-  transform: translate(0%, 0%);
-  transition-timing-function: linear;
-  transition-property: opacity, filter;
-} */
 
 .header--btnMenu {
   cursor: pointer;
@@ -94,6 +73,7 @@ export default {
   top: 10px;
   right: 10px;
   width: 45px;
+  z-index: 999;
   height: 40px;
   display: flex;
   position: fixed;
@@ -103,8 +83,8 @@ export default {
 }
 
 .hamburger-inner {
-  display: block;
   top: 20px;
+  display: block;
   margin-top: -2px;
 }
 
