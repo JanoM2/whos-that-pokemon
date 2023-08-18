@@ -41,7 +41,7 @@ export default {
       showPokemon: false,
       showBttn: false,
       message: "",
-      nombres: ["Jano", "Jere", "Juan", 2221, "XRL8"],
+      nombres: ["Lorem", "Lorem", "Lorem", "Lorem", "Lorem"],
     };
   },
   methods: {
