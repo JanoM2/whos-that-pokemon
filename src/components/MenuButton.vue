@@ -15,24 +15,6 @@ export default {
         console.log("tabla record");
     };
 
-    // document.addEventListener("click", (e) => {
-    //   if (
-    //     !e.target.matches(".header--btnMenu") &&
-    //     !e.target.matches(".tabla-records")
-    //     // document.querySelector(".tabla-records.active")
-    //     // SI TABLA RECORDS IS-ACTIVE, TOMAR CLASES SINO NO
-
-    //     // BUSCAR UNA MANERA DE VERIFICAR SI
-    //     // "TABLA RECORDS ACTIVE" ES TRUE
-    //   ) {
-    //     console.log(event.target);
-    //     document.querySelector(".tabla-records").classList.toggle("active");
-    //     document
-    //       .querySelector(".header--btnMenu")
-    //       .classList.toggle("is-active");
-    //     document.querySelector(".main").classList.toggle("blur");
-    //   }
-    // });
     return { changeValue };
   },
 };
