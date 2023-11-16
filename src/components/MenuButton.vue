@@ -1,5 +1,5 @@
 <template>
-  <span @click="changeValue" class="header--btnMenu hamburger-box">
+  <span title="Mostrar Tabla de Records" class="header--btnMenu hamburger-box">
     <span class="header--btnMenu hamburger-inner"></span>
   </span>
 </template>
@@ -11,29 +11,20 @@ export default {
       document.querySelector(".tabla-records").classList.toggle("active");
       document.querySelector(".header--btnMenu").classList.toggle("is-active");
       document.querySelector(".main").classList.toggle("blur");
-      if (e.target.matches(".tabla-records.active"))
-        console.log("tabla record");
+      document
+        .querySelectorAll("li")
+        .forEach((el) => el.classList.toggle("inactive"));
     };
 
-    // document.addEventListener("click", (e) => {
-    //   if (
-    //     !e.target.matches(".header--btnMenu") &&
-    //     !e.target.matches(".tabla-records")
-    //     // document.querySelector(".tabla-records.active")
-    //     // SI TABLA RECORDS IS-ACTIVE, TOMAR CLASES SINO NO
+    document.addEventListener("click", (event) => {
+      const element = event.target.classList.value
 
-    //     // BUSCAR UNA MANERA DE VERIFICAR SI
-    //     // "TABLA RECORDS ACTIVE" ES TRUE
-    //   ) {
-    //     console.log(event.target);
-    //     document.querySelector(".tabla-records").classList.toggle("active");
-    //     document
-    //       .querySelector(".header--btnMenu")
-    //       .classList.toggle("is-active");
-    //     document.querySelector(".main").classList.toggle("blur");
-    //   }
-    // });
-    return { changeValue };
+      if (element.includes("btnMenu")) {
+        document.querySelector(".tabla-records").classList.toggle("active")
+      }
+    });
+
+    return {};
   },
 };
 </script>
@@ -62,9 +53,9 @@ export default {
   background-color: var(--secondary-color);
 }
 
-.header--btnMenu:hover > .hamburger-inner,
-.header--btnMenu:hover > .hamburger-inner::before,
-.header--btnMenu:hover > .hamburger-inner::after {
+.header--btnMenu:hover>.hamburger-inner,
+.header--btnMenu:hover>.hamburger-inner::before,
+.header--btnMenu:hover>.hamburger-inner::after {
   transition: 0.6s;
   background-color: var(--primary-color);
 }

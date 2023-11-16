@@ -1,96 +1,42 @@
 <template>
-  <div class="tabla-records">
-    <h4>Tabla de Puntuaciones</h4>
-    <ol>
-      <li
-        :class="[`nombre-${idx + 1}`]"
-        v-for="(nombre, idx) in nombres"
-        :key="idx"
-        @click="consola"
-      >
-        {{ nombre }}
-      </li>
-    </ol>
-  </div>
+  <RouterLink :to="{ name: 'home' }" @click="toggle" class="fade-in record showGame">
+    ¿Queres volver al juego?
+  </RouterLink>
 </template>
 
 <script>
+import { ref } from 'vue';
+import { mapActions } from 'vuex';
+import { RouterLink } from "vue-router"
+
 export default {
+  components: {},
   props: { nombres: { type: String, required: true } },
+  methods: {
+    ...mapActions("scoreboard", ["getNames"]),
+    names() {
+      let result = getNames()
+      console.log(result)
+    }
+  },
   setup() {
+    // si el url contiene 'record' mostrar tabla
+    const rutaActual = ref(window.location.href).value;
+    if (rutaActual.includes('record')) {
+      document.querySelector(".tabla-records").classList.add("active");
+    }
+
+    // al hacerle click al boton routerlink, esconde la tabla
+    const toggle = () => {
+      document.querySelector(".tabla-records").classList.remove("active");
+    }
+
     return {
-      consola: (event) => {
-        console.log(event.target.innerText);
-        // mostrar puntaje de la persona seleccionada
-      },
+      nombres: ["Jano", "Jere", "Juan", 2221, "XRL8"],
+      toggle,
     };
   },
 };
 </script>
 
-<style scoped>
-* {
-  margin: 0;
-}
-.tabla-records {
-  top: 0%;
-  left: 0%;
-  z-index: 999;
-  margin: 10px;
-  width: 200px;
-  display: flex;
-  transition: 1s;
-  border-radius: 5%;
-  position: fixed;
-  flex-direction: column;
-  border: 3px solid var(--secondary-color);
-  background: linear-gradient(
-    0deg,
-    rgba(18, 144, 6, 1) 19%,
-    rgba(24, 171, 8, 1) 46%,
-    rgba(28, 197, 10, 1) 73%
-  );
-}
-
-h4 {
-  margin: 0px;
-  padding: 10px;
-  color: #66e558;
-  background: linear-gradient(
-    0deg,
-    rgba(74, 74, 79, 1) 2%,
-    rgba(61, 61, 66, 1) 19%
-  );
-  border-radius: 5px 5px 0px 0px;
-}
-
-ol {
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-}
-
-li {
-  width: 0;
-  margin: 5px;
-  transition: 0.6s;
-  padding-left: 40px;
-}
-
-li:hover {
-  color: white;
-  cursor: pointer;
-  transition: 0.6s;
-}
-.tabla-records.active {
-  transform: translate(-50%, -100%);
-}
-
-@media (max-width: 900px) {
-  .tabla-records {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -500%);
-  }
-}
-</style>
+<style></style>

@@ -5,6 +5,10 @@
 <script>
 export default {
   props: { counter: { type: Number, required: true } },
+  setup(props) {
+    localStorage.setItem("Contador", props.counter);
+    return {};
+  },
 };
 </script>
 
