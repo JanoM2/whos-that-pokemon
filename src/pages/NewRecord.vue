@@ -15,7 +15,7 @@
         <span class="name">Tu nombre:</span>
         <input v-model="modelValue" type="text" name="name" maxlength="4" placeholder="Escribe 4 letras o numeros...">
       </div>
-      <button @click="send" class="btnnewrecord">Agregar Nombre</button>
+      <button @click="send(modelValue, namePlayer)" class="btnnewrecord">Agregar Nombre</button>
 
     </div>
   </div>
@@ -31,41 +31,39 @@ export default {
   props: {
     nombres: { type: String, required: true },
     counter: { type: Number, required: true },
+    namePlayer: { type: String, required: true },
+  },
+  methods: {
+    ...mapActions('scoreboard', ["createNames"]),
+
+    send(modelValue, namePlayer) {
+      if (!modelValue) {
+        Swal.fire({
+          title: 'Error!',
+          text: `No Ingresaste Nada`,
+        })
+      } else if (modelValue) {
+        namePlayer = modelValue;
+        Swal.fire({
+          title: 'Record Guardado con Exito!',
+          text: `Nombre: ${namePlayer} - Record: ${this.counter}`,
+        })
+
+        let arr = [namePlayer, this.counter]
+        this.createNames(arr);
+      }
+      return namePlayer
+    }
   },
   setup(props) {
     const store = useStore();
     let counter = localStorage.getItem("Contador")
 
-    // Obtener Nombre del input
-
-    const { createNames } = mapActions('scoreboard', ["createNames"])
-
     const modelValue = ref(),
-      digits = ref('');
-
-    const send = () => {
-      if (!modelValue.value) {
-        Swal.fire({
-          title: 'Error!',
-          text: `No Ingresaste un nombre`,
-        })
-      } else if (modelValue.value) {
-        digits.value = modelValue.value;
-        Swal.fire({
-          title: 'Record Guardado con Exito!',
-          text: `Nombre: ${digits.value} - Record: ${counter}`,
-        })
-
-        createNames();
-      }
-      return digits.value
-    }
-
-    // store functions
-
+      namePlayer = ref('');
 
     return {
-      counter, modelValue, digits, send,
+      counter, modelValue, namePlayer
     }
   }
 };

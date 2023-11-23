@@ -16,7 +16,7 @@
     </div>
 
     <RouterLink :to="{ name: 'newrecord' }" v-if="showBttn" class="fade-in record newRecord">
-      ¿Quieres anotar tu record?
+      ¿Queres anotar tu record?
     </RouterLink>
 
   </div>

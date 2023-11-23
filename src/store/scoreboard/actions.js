@@ -1,35 +1,23 @@
 import recordApi from "@/api/recordApi";
 
 export const getNames = async ({ commit }) => {
-  const data = await recordApi.get("/record.json");
+  const { data } = await recordApi.get("/record.json"),
+    arrNames = [];
 
-  console.log(data);
+  Object.values(data).forEach((obj) => {
+    arrNames.push(obj);
+  });
 
-  // if (!data) {
-  //   commit("lorem", []);
-  //   return;
-  // }
+  commit("setNames", arrNames);
 
-  // const entries = [];
-  // for (let id of Object.keys(data)) {
-  //   entries.push({ id, ...data[id] });
-  // }
-
-  commit("setEntries", entries);
-
-  return data;
+  return arrNames;
 };
 
 export const createNames = async ({ commit }, entry) => {
-  // const { date, picture, text } = entry,
-  //   dataToSave = { date, picture, text };
-  console.log("createNames");
+  let [namePlayer, counter] = entry;
 
-  // const { data } = await recordApi.post(`/record.json`, dataToSave);
-  // dataToSave.id = data.name;
-
-  commit("addName");
-
-  // return data.name;
-  // console.log(data);
+  const { data } = await recordApi.post(`/record.json`, {
+    namePlayer,
+    counter,
+  });
 };

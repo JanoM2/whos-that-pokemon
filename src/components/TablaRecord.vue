@@ -1,39 +1,53 @@
 <template>
-    <div class="tabla-records">
-        <h4>Tabla de Puntuaciones</h4>
-        <ol>
-            <li :class="[`nombre-${idx + 1}`]" v-for="(nombre, idx) in nombres" :key="idx" @click="consola">
-                {{ nombre }} {{ counter }}
-            </li>
-        </ol>
-    </div>
+    <section class="tabla-records">
+        <h3 class="title">Tabla de Puntuaciones</h3>
+
+        <div class="content-container">
+            <article class="names-container">
+                <h4>Nombres</h4>
+                <ol>
+                    <li :class="[`names-${idx + 1}`]" v-for="(name, idx) in names[0]" :key="idx">
+                        {{ name.namePlayer }}
+                    </li>
+                </ol>
+            </article>
+
+            <article class="points-container">
+                <h4>Puntos</h4>
+                <ol>
+                    <ul :class="[`points-${idx + 1}`]" v-for="(name, idx) in names[0]" :key="idx">
+                        {{ name.counter }}
+                    </ul>
+                </ol>
+            </article>
+        </div>
+    </section>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
     methods: {
         ...mapActions("scoreboard", ["getNames"]),
-        names() {
-            let result = getNames()
-            console.log(result)
-        }
     },
-    setup() {
-        return {
-            nombres: ["Jano", "Jere", "Juan", 2221, "XRL8"],
-        }
-    }
+    computed: {
+        ...mapState('scoreboard', ['names'])
+    },
+    async created() {
+        await this.getNames()
+    },
 }
 </script>
+
+
 
 <style>
 .tabla-records {
     left: 50%;
     margin: auto;
     z-index: 999;
-    width: 200px;
+    width: 300px;
     display: flex;
     transition: 1s;
     border-radius: 5%;
@@ -47,7 +61,7 @@ export default {
             rgba(28, 197, 10, 1) 73%);
 }
 
-h4 {
+h3 {
     margin: 0px;
     padding: 10px;
     color: #66e558;
@@ -57,6 +71,15 @@ h4 {
     border-radius: 5px 5px 0px 0px;
 }
 
+h4 {
+    margin-left: 20px;
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 ol {
     margin: 5px;
     display: flex;
@@ -64,10 +87,16 @@ ol {
 }
 
 li {
-    width: 0;
+    width: auto;
     margin: 5px;
     transition: 0.6s;
     padding-left: 40px;
+}
+
+ul[class*="points"] {
+    width: 50px;
+    display: flex;
+    margin: 5px auto;
 }
 
 li:hover {
@@ -78,7 +107,7 @@ li:hover {
 
 .tabla-records.active {
     left: 50%;
-    top: 40vh;
+    top: 30vh;
     position: fixed;
     transform: translateX(-50%);
 }
