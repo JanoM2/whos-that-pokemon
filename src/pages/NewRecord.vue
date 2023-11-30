@@ -43,16 +43,17 @@ export default {
           text: `No Ingresaste Nada`,
         })
       } else if (modelValue) {
+
         namePlayer = modelValue;
+        let arr = [namePlayer, this.counter]
+
         Swal.fire({
           title: 'Record Guardado con Exito!',
           text: `Nombre: ${namePlayer} - Record: ${this.counter}`,
         })
 
-        let arr = [namePlayer, this.counter]
         this.createNames(arr);
       }
-      return namePlayer
     }
   },
   setup(props) {
