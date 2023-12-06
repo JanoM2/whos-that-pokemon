@@ -1,8 +1,6 @@
 <template>
   <MenuButton />
 
-  <TablaRecord></TablaRecord>
-
   <RouterView>
   </RouterView>
 </template>
@@ -10,11 +8,10 @@
 <script>
 import { RouterView } from "vue-router";
 import MenuButton from "@/components/MenuButton.vue";
-import TablaRecord from "@/components/TablaRecord.vue";
 
 export default {
   name: "app",
-  components: { MenuButton, TablaRecord },
+  components: { MenuButton },
   data() {
 
     return {

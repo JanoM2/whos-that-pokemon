@@ -3,6 +3,8 @@
     ¿Queres volver al juego?
   </RouterLink>
 
+  <TablaRecord></TablaRecord>
+
   <div>
     <h1>Agregar puntuacion</h1>
     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
@@ -23,11 +25,14 @@
 
 <script>
 import Swal from 'sweetalert2'
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { useStore, mapActions, } from 'vuex';
 import { RouterLink } from 'vue-router';
+import TablaRecord from "@/components/TablaRecord.vue";
+
 
 export default {
+  components: { TablaRecord },
   props: {
     nombres: { type: String, required: true },
     counter: { type: Number, required: true },

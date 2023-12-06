@@ -2,6 +2,8 @@
   <RouterLink :to="{ name: 'records' }" class="fade-in record showRecord">¿Queres ver los records?
   </RouterLink>
 
+  <TablaRecord></TablaRecord>
+
   <h1 v-if="!pokemon">Espere por favor...</h1>
   <div class="main" v-else>
     <h1>¿Quien es este Pokémon?</h1>
@@ -29,10 +31,11 @@ import Contador from "@/components/Contador.vue";
 import PokemonOptions from "@/components/PokemonOptions.vue";
 import PokemonPicture from "@/components/PokemonPicture.vue";
 import getPokemonOptions from "@/pages/helpers/getPokemonOptions.js";
+import TablaRecord from '@/components/TablaRecord.vue';
 
 export default {
   name: "PokemonPage",
-  components: { PokemonOptions, PokemonPicture, Contador, Records, },
+  components: { PokemonOptions, PokemonPicture, Contador, Records, TablaRecord },
   data() {
 
     return {

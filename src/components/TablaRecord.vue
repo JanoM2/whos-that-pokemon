@@ -105,9 +105,9 @@ li:hover {
     transition: 0.6s;
 }
 
-.tabla-records.active {
+.tabla-records.is-active {
     left: 50%;
-    top: 30vh;
+    top: 20vh;
     position: fixed;
     transform: translateX(-50%);
 }

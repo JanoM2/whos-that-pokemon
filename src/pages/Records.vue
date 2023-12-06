@@ -2,37 +2,35 @@
   <RouterLink :to="{ name: 'home' }" @click="toggle" class="fade-in record showGame">
     ¿Queres volver al juego?
   </RouterLink>
+
+  <TablaRecord></TablaRecord>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue"
 import { mapActions } from 'vuex';
 import { RouterLink } from "vue-router"
+import TablaRecord from '@/components/TablaRecord.vue';
 
 export default {
-  components: {},
-  props: { nombres: { type: String, required: true } },
+  components: { TablaRecord },
   methods: {
     ...mapActions("scoreboard", ["getNames"]),
-    names() {
-      let result = getNames()
-      console.log(result)
+  },
+  mounted() {
+    // si el url contiene 'record' mostrar tabla
+    const rutaActual = ref(window.location.href).value;
+
+    if (rutaActual.includes('record')) {
+      document.querySelector(".tabla-records").classList.toggle("is-active");
     }
   },
   setup() {
-    // si el url contiene 'record' mostrar tabla
-    const rutaActual = ref(window.location.href).value;
-    if (rutaActual.includes('record')) {
-      document.querySelector(".tabla-records").classList.add("active");
-    }
-
     // al hacerle click al boton routerlink, esconde la tabla
     const toggle = () => {
-      document.querySelector(".tabla-records").classList.remove("active");
+      document.querySelector(".tabla-records").classList.toggle("active");
     }
-
     return {
-      nombres: ["Jano", "Jere", "Juan", 2221, "XRL8"],
       toggle,
     };
   },
