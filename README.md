@@ -10,7 +10,7 @@ npm install event-pubsub
 
 ### Compiles and hot-reloads for development
 ```
-npm run dev
+npm run serve
 ```
 
 ### This usually run at http://localhost:8080/
