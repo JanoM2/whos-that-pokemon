@@ -1,4 +1,4 @@
-# 04-pokemon-game
+# Pokemon-Game
 Technologies used:
 - I used Vue js, Vuex, Vue Router, JavaScript, Html, Css and Pokemon APIs
 
