@@ -22,8 +22,8 @@ npm run serve
 
 ### Preview  
 ![image](https://github.com/JanoM2/whos-that-pokemon/assets/78227130/7ae81a6e-c69f-405f-bd7a-924592d842ae)  
+![image](https://github.com/JanoM2/whos-that-pokemon/assets/78227130/833ae058-7891-4586-b448-422ecc586719)  
 ![image](https://github.com/JanoM2/whos-that-pokemon/assets/78227130/966fe26c-169b-4260-848a-559c9ddd9451)  
-![image](https://github.com/JanoM2/whos-that-pokemon/assets/78227130/833ae058-7891-4586-b448-422ecc586719)
 
 
 
