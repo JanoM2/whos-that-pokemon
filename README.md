@@ -1,6 +1,6 @@
 # Pokemon-Game
 Technologies used:
-- I used Vue js, Vuex, Vue Router, AXios, JavaScript, Html, Css and Pokemon APIs
+- I used Vue js, Vuex, Vue Router, Axios, JavaScript, Html, Css and Pokemon APIs
 
 I learned things like:
 - Creation of reusable and modular components, global state management, implementation of dynamic and nested routes, HTTP requests, and API handling.  
