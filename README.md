@@ -5,7 +5,7 @@ Technologies used:
 I learned things like:
 - Creation of reusable and modular components, global state management, implementation of dynamic and nested routes, HTTP requests, and API handling.  
 
-📍 Link [Who's That Pokemon]([https://codepen.io/janom2/](https://game-whos-that-pokemon.netlify.app/))
+📍 Link: [Who's That Pokemon](https://game-whos-that-pokemon.netlify.app/))
 
 ## Project setup
 ```
