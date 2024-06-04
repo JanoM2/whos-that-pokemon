@@ -1,6 +1,11 @@
 # 04-pokemon-game
+Technologies used:
+- I used Vue js, Vuex, Vue Router, JavaScript, Html, Css and Pokemon APIs
 
-Link to Demo: https://game-whos-that-pokemon.netlify.app/
+I learned things like:
+- Fetching, APIs handle,   
+
+📍 Link [Who's That Pokemon]([https://codepen.io/janom2/](https://game-whos-that-pokemon.netlify.app/))
 
 ## Project setup
 ```
